@@ -8,9 +8,9 @@
     <span class="svelt-color font-effect-3d-float">{head.title}</span>
   </h1>
 
-  <h2 class="gr-color">Доброго всем</h2>
+  <h2>Доброго всем</h2>
 
-  <div class="begin">
+  <div>
     <p>Эта страничка создана на еще одном прекрасном реактивном фреймворке javascript - <a href="https://ru.svelte.dev/">Svelte</a>.</p>
     <p>Исходники сайта можно глянуть <a href="https://github.com/mche/svelte-app">https://github.com/mche/svelte-app</a>. Потом на другом шаблоне - <a href="https://github.com/mche/svelte-vite-starter">https://github.com/mche/svelte-vite-starter</a></p>
     <p>Ниже просто подборка коротких заметок. Заголовки кликабельны.</p>
@@ -58,7 +58,7 @@
   
   <style lang="scss">
     $sv-color: #ff3e00;
-    $clr1: #1B5E20;
+    $gr-color: #1B5E20;
 
     main {
       padding: 1em;
@@ -80,6 +80,7 @@
       font-size: 2em;
       font-weight: 100;
       margin-top: 0;
+      color: $gr-color;
     }
   
     h3 {
@@ -95,7 +96,7 @@
       color: $sv-color;
     }
     .gr-color {
-      color: $clr1;
+      color: $gr-color;
     }
     /*.center {
       text-align: center;
