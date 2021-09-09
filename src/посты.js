@@ -26,7 +26,9 @@ $ surge public mche.us.to
 },
 {
     "title":'Vite + Svelte + TypeScript + SCSS + Babel + Autoprefixer + HMR',
-    "html": 'Еще один замечательный шаблон-стартер <a href="https://github.com/baileyherbert/svelte-vite-starter">https://github.com/baileyherbert/svelte-vite-starter</a>. Переделал на него этот сайтег.',
+    "html": `
+    Еще один замечательный шаблон-стартер <a href="https://github.com/baileyherbert/svelte-vite-starter">https://github.com/baileyherbert/svelte-vite-starter</a>.
+    Переделал на него этот сайтег. Все работает из коробки, стили SCSS работают.`,
 },
     /*
     **

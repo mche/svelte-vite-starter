@@ -12,7 +12,7 @@
 
   <div class="begin">
     <p>Эта страничка создана на еще одном прекрасном реактивном фреймворке javascript - <a href="https://ru.svelte.dev/">Svelte</a>.</p>
-    <p>Исходники сайта можно глянуть <a href="https://github.com/mche/svelte-app">https://github.com/mche/svelte-app</a>.</p>
+    <p>Исходники сайта можно глянуть <a href="https://github.com/mche/svelte-app">https://github.com/mche/svelte-app</a>. Потом на другом шаблоне - <a href="https://github.com/mche/svelte-vite-starter">https://github.com/mche/svelte-vite-starter</a></p>
     <p>Ниже просто подборка коротких заметок. Заголовки кликабельны.</p>
     
   </div>
@@ -21,7 +21,7 @@
   <p><a href="https://t.me/sveltejs">Телеграм Свелт</a> - официальный русскоязычный канал.</p-->
   
   { #each posts as p }
-    <h3 class="center-000"><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
+    <h3><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
     <p>{@html p.html }</p>
     {#if !!p.code }<code class="code">{ p.code }</code>{/if}
   { /each }
@@ -84,6 +84,7 @@
   
     h3 {
       font-weight: 400;
+      margin-bottom: 0rem;
     }
     
     .me {
@@ -96,9 +97,9 @@
     .gr-color {
       color: $clr1;
     }
-    .center {
+    /*.center {
       text-align: center;
-    }
+    }*/
     
     .clock {
       width: 15rem;
