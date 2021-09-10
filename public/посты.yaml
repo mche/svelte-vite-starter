@@ -32,16 +32,16 @@
 
       Success! - Published to mche.us.to
 -
-  title: Vite - замечательный сборщик JS
+  title: Vite - отличный сборщик JS
   html: >
-    Поробовал <a href="https://vitejs.dev/">Vite</a> для своего Svelt-сайта.
+    Поробовал <a href="https://vitejs.dev/">Vite</a> для своего Svelte-сайта.
     Впервые натолкнулся на него в доке Vue. Пошло хорошо, только не смог настроить SCSS/SASS.
     Также пытался через <a href="https://windicss.org/">Windi CSS</a> - пока не катит.
 -
   title: Vite + Svelte + TypeScript + SCSS + Babel + Autoprefixer + HMR
   html: >
     Еще один замечательный шаблон-стартер <a href="https://github.com/baileyherbert/svelte-vite-starter">https://github.com/baileyherbert/svelte-vite-starter</a>.
-    Переделал на него этот сайтег. Все работает из коробки, стили SCSS работают.
+    Переделал на него этот сайтег, глянуть исходники - <a href="https://github.com/mche/svelte-vite-starter">https://github.com/mche/svelte-vite-starter</a>. Все работает из коробки, стили SCSS работают.
 -
   title: Vue кириллические пропсы
   html: Крутяк, но не проверил на сборщиках parcel, rollup
