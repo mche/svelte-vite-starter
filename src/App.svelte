@@ -33,12 +33,16 @@
     ///import './global.css'
     import Clock from './components/Clock.svelte';
     import Me from './components/Me.svelte';
-    import посты from './посты.js';
-    ///export let name;
+    import data from './store.js';
     export let head;
-    ///export let посты;
-    
-    $: posts = посты;
+
+
+    let posts = [];
+    $: posts = posts;
+
+    const unsubscribe = data.посты.subscribe(посты => {
+        posts = посты;///!!!! реактивность массива
+	});
   
   
     const Click = (post) => {
@@ -47,11 +51,6 @@
       posts = posts;///!!!! реактивность массива
     };
     
-  //~   $: head.title = name;
-    ///$: document.title = name;
-   
-  /// $: name2 = name.toUpperCase();
-    ///Click();
     
   </script>
   
@@ -86,6 +85,7 @@
     h3 {
       font-weight: 400;
       margin-bottom: 0rem;
+      margin-top: 3rem;
     }
     
     .me {
@@ -109,7 +109,7 @@
     
     .code {
       display:block;
-      padding: 0 1rem;
+      padding: 0.5rem 1rem;
       white-space: pre-wrap;
       text-align: left;
       background-color: black;
