@@ -9,7 +9,7 @@
   </h1>
 
   <h2>{ main_post.title }</h2>
-  <div>{@html main_post.html }</div>
+  <div>{@html main_post.html || '' }</div>
   
   { #each posts as p }
     <h3><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
@@ -29,7 +29,7 @@
 
 
     let posts, main_post;
-    $: main_post = {};
+    $: main_post = {title: "Сайт загружается ..."};
     $: posts = [];
 
     const unsubscribe = data.посты.subscribe(посты => {
