@@ -1,6 +1,15 @@
-# 
+# Первый пост будет оформлен чуть по другому
 # 
 #
+-
+  title: Доброго всем
+  html: >
+    <p>Эта страничка создана на еще одном прекрасном реактивном фреймворке javascript - <a href="https://ru.svelte.dev/">Svelte</a>.</p>
+    <p>Сначала сайт делал на шаблоне <a href="https://github.com/mche/svelte-app">https://github.com/mche/svelte-app</a>.
+    Потом перешел на другой шаблон - <a href="https://github.com/mche/svelte-vite-starter">https://github.com/mche/svelte-vite-starter</a></p>
+    <p>Ниже просто подборка коротких заметок. Заголовки кликабельны.</p>
+#    <p><a href="https://ru.svelte.dev/tutorial">Svelte учебник</a> - на официальном русскоязычном сайтеге.</p>
+#    <p><a href="https://t.me/sveltejs">Телеграм Свелт</a> - официальный русскоязычный канал.</p>
 -
   title: All glory to... Gloria
   html: >

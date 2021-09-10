@@ -12,7 +12,8 @@ const data = {
     });
  */
 
-    fetch('посты.yaml')
+    ///fetch('посты.yaml')
+    fetch('https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml')
     .then(res => res.blob())
     .then(blob => blob.text())
     .then(yamlAsString => {

@@ -8,17 +8,8 @@
     <span class="svelt-color font-effect-3d-float">{head.title}</span>
   </h1>
 
-  <h2>Доброго всем</h2>
-
-  <div>
-    <p>Эта страничка создана на еще одном прекрасном реактивном фреймворке javascript - <a href="https://ru.svelte.dev/">Svelte</a>.</p>
-    <p>Исходники сайта можно глянуть <a href="https://github.com/mche/svelte-app">https://github.com/mche/svelte-app</a>. Потом на другом шаблоне - <a href="https://github.com/mche/svelte-vite-starter">https://github.com/mche/svelte-vite-starter</a></p>
-    <p>Ниже просто подборка коротких заметок. Заголовки кликабельны.</p>
-    
-  </div>
-
-  <!--p><a href="https://ru.svelte.dev/tutorial">Svelte учебник</a> - на официальном русскоязычном сайтеге.</p>
-  <p><a href="https://t.me/sveltejs">Телеграм Свелт</a> - официальный русскоязычный канал.</p-->
+  <h2>{ main_post.title }</h2>
+  <div>{@html main_post.html }</div>
   
   { #each posts as p }
     <h3><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
@@ -37,10 +28,12 @@
     export let head;
 
 
-    let posts = [];
-    $: posts = posts;
+    let posts, main_post;
+    $: main_post = {};
+    $: posts = [];
 
     const unsubscribe = data.посты.subscribe(посты => {
+        main_post = посты.shift();
         posts = посты;///!!!! реактивность массива
 	});
   
