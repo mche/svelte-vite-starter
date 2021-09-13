@@ -29,7 +29,7 @@
 
 
     let posts, main_post;
-    $: main_post = {title: "Сайт загружается ..."};
+    $: main_post = {title: "Сайт загружается ...", html: '<a href="https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml">https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml</a>'};
     $: posts = [];
 
     const unsubscribe = data.посты.subscribe(посты => {

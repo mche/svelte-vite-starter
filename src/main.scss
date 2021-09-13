@@ -1,3 +1,5 @@
+$link_color: rgb(0,100,200);
+
 html, body {
 	position: relative;
 	width: 100%;
@@ -18,7 +20,7 @@ body {
 }
 
 a {
-	color: rgb(0,100,200);
+	color: $link_color;
 	text-decoration: none;
 
 	&:hover {
