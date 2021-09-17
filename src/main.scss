@@ -1,4 +1,4 @@
-@import '../node_modules/simple-scrollbar/simple-scrollbar.css';
+@import 'simple-scrollbar/simple-scrollbar.css';
 $link_color: rgb(0,100,200);
 $sv-color: #ff3e00;
 
@@ -87,4 +87,5 @@ p {
 
 .ss-scroll {
     background-color: $sv-color;
+    opacity: 1;
 }

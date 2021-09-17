@@ -11,7 +11,7 @@
   <h2>{ main_post.title }</h2>
   <div class="first-post">{@html main_post.html || '' }</div>
   
-  <div bind:this="{Refs.scroll}" class="ss-container z-depth-3">{ #each posts as p }
+  <div bind:this="{Refs.scroll}" class="ss-container z-depth-3 {ready ? '' : 'hide'}">{ #each posts as p }
     <div class="post">
         <h3><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
         <p>{@html p.html }</p>
@@ -29,20 +29,24 @@
     import Me from './components/Me.svelte';
     import store from './store.js';
     /// просто попробовать скролл https://www.cssscript.com/best-custom-scrollbar-javascript-libraries/
-    import SimpleScrollbar from 'simple-scrollbar';
+    import SimpleScrollbar from 'simple-scrollbar/simple-scrollbar.js';
 
     export let head;
 
 
-    let posts, main_post;
+    let posts, main_post, ready;
     $: main_post = {title: "Сайт загружается ...", html: '<a href="https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml">https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml</a>'};
     $: posts = [];
+    $: ready = false;
     let Refs = {};
 
     const unsubscribe = store.посты.subscribe(посты => {
         main_post = посты.shift();
         posts = посты;///!!!! реактивность массива
-        setTimeout(_ => SimpleScrollbar.initEl(Refs.scroll), 100);
+        setTimeout(_ => {
+            SimpleScrollbar.initEl(Refs.scroll);
+            ready = true;
+        }, 333);
 	});
 
     
@@ -65,6 +69,10 @@
     main {
       padding: 1em;
       /*margin: 0 auto;*/
+    }
+
+    .hide {
+        display: none;
     }
   
     .ss-container {
