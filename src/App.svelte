@@ -1,6 +1,6 @@
 <main>
   <div class="clock">
-    <Clock />
+    <Clock bind:this="{Refs.clock}"/>
     <div>Это SVG-часы - динамический Свелт-компонент.</div>
   </div>
   <h1>
@@ -24,18 +24,21 @@
     ///import './global.css'
     import Clock from './components/Clock.svelte';
     import Me from './components/Me.svelte';
-    import data from './store.js';
+    import store from './store.js';
     export let head;
 
 
     let posts, main_post;
     $: main_post = {title: "Сайт загружается ...", html: '<a href="https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml">https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml</a>'};
     $: posts = [];
+    let Refs = {};
 
-    const unsubscribe = data.посты.subscribe(посты => {
+    const unsubscribe = store.посты.subscribe(посты => {
         main_post = посты.shift();
         posts = посты;///!!!! реактивность массива
 	});
+
+    
   
   
     const Click = (post) => {

@@ -55,6 +55,12 @@
           ...
         };
 -
+  title: Проблемы сертификатов в nodejs
+  html: >
+    <code>Error: unable to verify the first certificate<code>
+  code: >
+    npm config set strict-ssl false
+-
   title: SVG-ништяки
   html: >
     Сайтег <a href="https://www.flaticon.com/">www.flaticon.com</a>, где можно брать тонны картинок и пиктограмм.

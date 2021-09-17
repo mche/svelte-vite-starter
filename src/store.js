@@ -2,14 +2,19 @@ import { writable } from 'svelte/store';
 import { parse } from 'yaml';
 ///import axios from 'axios';
 
-const data = {
+const store = {
     посты: writable([]),
+    Foo(){
+        let all;
+        store.посты.update(old => all = old);
+        return all;
+    },
 };
 
 /*fetch('посты.json')
     .then(response => response.json())
     .then(посты => {
-        data.посты.update(old => посты);
+        store.посты.update(old => посты);
     });
  */
 
@@ -21,8 +26,8 @@ fetch('https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/
 ///          { responseType: 'blob' })
 ///    .then(resp => resp.data.text())
     .then(yamlAsString => {
-      data.посты.update(old => parse(yamlAsString));  
+      store.посты.update(old => parse(yamlAsString));  
     })
     .catch(err => console.log('посты.yaml error:', err))
 
-export default data;
+export default store;
