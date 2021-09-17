@@ -1,4 +1,6 @@
+@import '../node_modules/simple-scrollbar/simple-scrollbar.css';
 $link_color: rgb(0,100,200);
+$sv-color: #ff3e00;
 
 html, body {
 	position: relative;
@@ -20,7 +22,7 @@ body {
 }
 
 a {
-	color: $link_color;
+	color: $sv-color;
 	text-decoration: none;
 
 	&:hover {
@@ -28,7 +30,7 @@ a {
 	}
 
 	&:visited {
-		color: rgb(0,80,160);
+		color: $link_color;
 	}
 }
 
@@ -77,4 +79,12 @@ button:focus {
 p {
     line-height: 1.2 rem;
     margin: 0;
+}
+
+.z-depth-3 {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
+}
+
+.ss-scroll {
+    background-color: $sv-color;
 }

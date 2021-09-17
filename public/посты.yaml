@@ -55,7 +55,7 @@
           ...
         };
 -
-  title: Проблемы сертификатов в nodejs
+  title: Проблемы сертификатов при установке в npm
   html: >
     <code>Error: unable to verify the first certificate<code>
   code: >

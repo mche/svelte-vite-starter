@@ -1,6 +1,6 @@
 <main>
   <div class="clock">
-    <Clock bind:this="{Refs.clock}"/>
+    <Clock />
     <div>Это SVG-часы - динамический Свелт-компонент.</div>
   </div>
   <h1>
@@ -9,13 +9,16 @@
   </h1>
 
   <h2>{ main_post.title }</h2>
-  <div>{@html main_post.html || '' }</div>
+  <div class="first-post">{@html main_post.html || '' }</div>
   
-  { #each posts as p }
-    <h3><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
-    <p>{@html p.html }</p>
-    {#if !!p.code }<code class="code">{ p.code }</code>{/if}
-  { /each }
+  <div bind:this="{Refs.scroll}" class="ss-container z-depth-3">{ #each posts as p }
+    <div class="post">
+        <h3><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
+        <p>{@html p.html }</p>
+        {#if !!p.code }<code class="code">{ p.code }</code>{/if}
+    </div>
+  { /each }</div>
+
   <!--FooComponent1 text="{head.title}"/-->
 </main>
 
@@ -25,6 +28,9 @@
     import Clock from './components/Clock.svelte';
     import Me from './components/Me.svelte';
     import store from './store.js';
+    /// просто попробовать скролл https://www.cssscript.com/best-custom-scrollbar-javascript-libraries/
+    import SimpleScrollbar from 'simple-scrollbar';
+
     export let head;
 
 
@@ -36,6 +42,7 @@
     const unsubscribe = store.посты.subscribe(посты => {
         main_post = посты.shift();
         posts = посты;///!!!! реактивность массива
+        setTimeout(_ => SimpleScrollbar.initEl(Refs.scroll), 100);
 	});
 
     
@@ -60,6 +67,10 @@
       /*margin: 0 auto;*/
     }
   
+    .ss-container {
+        height: calc(40vh);
+    }
+
     
     .font-effect-3d-float {
         text-shadow: 0 0.15em 0.11em rgba(0, 0, 0, 0.15), 0 0.25em 0.021em rgba(0, 0, 0, 0.1), 0 0.32em 0.32em rgba(0, 0, 0, 0.1);
@@ -74,14 +85,14 @@
     h2 {
       font-size: 2em;
       font-weight: 100;
-      margin-top: 0;
+      margin: 0;
       color: $gr-color;
     }
   
     h3 {
       font-weight: 400;
-      margin-bottom: 0rem;
-      margin-top: 3rem;
+      margin: 0rem;
+      //margin-top: 3rem;
     }
     
     .me {
@@ -101,6 +112,14 @@
     .clock {
       width: 15rem;
       float: right;
+    }
+
+    .post {
+        padding: 1rem;
+    }
+
+    .first-post {
+        margin-bottom: 1rem;
     }
     
     .code {
