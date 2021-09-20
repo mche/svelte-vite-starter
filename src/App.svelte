@@ -11,7 +11,7 @@
   <h2>{ main_post.title }</h2>
   <div class="first-post">{@html main_post.html || '' }</div>
   
-  <div bind:this="{Refs.scroll}" class="ss-container z-depth-3 {ready ? '' : 'hide'}">{ #each posts as p }
+  <div bind:this="{Refs.scroll}" class="  { ready ? 'ss-container z-depth-3' : 'hide' }">{ #each posts as p }
     <div class="post">
         <h3><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
         <p>{@html p.html }</p>
@@ -30,11 +30,13 @@
     import store from './store.js';
     /// просто попробовать скролл https://www.cssscript.com/best-custom-scrollbar-javascript-libraries/
     import SimpleScrollbar from 'simple-scrollbar/simple-scrollbar.js';
+    /// https://www.cssscript.com/performant-custom-scrollbar-javascript-library-simplebar/
+    /// не может import SimpleBar from 'simpleBar';
 
     export let head;
 
 
-    let posts, main_post, ready;
+    let posts, main_post, ready, scrollTimeout;
     $: main_post = {title: "Сайт загружается ...", html: '<a href="https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml">https://raw.githubusercontent.com/mche/svelte-vite-starter/master/public/посты.yaml</a>'};
     $: posts = [];
     $: ready = false;
@@ -43,11 +45,15 @@
     const unsubscribe = store.посты.subscribe(посты => {
         main_post = посты.shift();
         posts = посты;///!!!! реактивность массива
-        setTimeout(_ => {
+        if (!scrollTimeout) scrollTimeout = setTimeout(_ => {
+            ///console.log(new SimpleBar(Refs.scroll));
             SimpleScrollbar.initEl(Refs.scroll);
             ready = true;
-        }, 333);
+            ///setTimeout(_ => , 500);
+        }, 777);
 	});
+
+
 
     
   
@@ -72,11 +78,15 @@
     }
 
     .hide {
-        display: none;
+        height: 0;
+        visibility: hidden;
     }
   
     .ss-container {
         height: calc(40vh);
+        visibility: visible;
+        ///overflow: hidden;
+        transition: height 1s;
     }
 
     
