@@ -46,8 +46,6 @@
         main_post = посты.shift();
         posts = посты;///!!!! реактивность массива
         if (!scrollTimeout) scrollTimeout = setTimeout(_ => {
-            ///console.log(new SimpleBar(Refs.scroll));
-            console.log(Refs.scroll.offsetHeight);
             SimpleScrollbar.initEl(Refs.scroll);
             ready = true;
             ///setTimeout(_ => , 500);
