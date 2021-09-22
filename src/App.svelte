@@ -47,6 +47,7 @@
         posts = посты;///!!!! реактивность массива
         if (!scrollTimeout) scrollTimeout = setTimeout(_ => {
             ///console.log(new SimpleBar(Refs.scroll));
+            console.log(Refs.scroll.offsetHeight);
             SimpleScrollbar.initEl(Refs.scroll);
             ready = true;
             ///setTimeout(_ => , 500);
@@ -83,7 +84,7 @@
     }
   
     .ss-container {
-        height: calc(40vh);
+        height: calc(100vh - 410px); /// 
         visibility: visible;
         ///overflow: hidden;
         transition: height 1s;
