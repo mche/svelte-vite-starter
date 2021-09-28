@@ -29,7 +29,7 @@
     import Me from './components/Me.svelte';
     import store from './store.js';
     /// просто попробовать скролл https://www.cssscript.com/best-custom-scrollbar-javascript-libraries/
-    import SimpleScrollbar from 'simple-scrollbar/simple-scrollbar.js';
+    import SimpleScrollbar from 'simple-scrollbar';
     /// https://www.cssscript.com/performant-custom-scrollbar-javascript-library-simplebar/
     /// не может import SimpleBar from 'simpleBar';
 
