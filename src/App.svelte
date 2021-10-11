@@ -46,17 +46,13 @@
         main_post = посты.shift();
         posts = посты;///!!!! реактивность массива
         if (!scrollTimeout) scrollTimeout = setTimeout(_ => {
-            SimpleScrollbar.initEl(Refs.scroll);
+            ///SimpleScrollbar.initEl(Refs.comment);
             ready = true;
-            ///setTimeout(_ => , 500);
+            setTimeout(_ => SimpleScrollbar.initEl(Refs.scroll), 500);
         }, 777);
 	});
 
 
-
-    
-  
-  
     const Click = (post) => {
       post.title = ' ¡ ' +post.title + ' ! ';
       post._hide = !post._hide;
@@ -86,8 +82,11 @@
         visibility: visible;
         ///overflow: hidden;
         transition: height 1s;
-    }
 
+        @media (max-width: 996px) {
+            height: calc(100vh); /// 
+        }
+    }
     
     .font-effect-3d-float {
         text-shadow: 0 0.15em 0.11em rgba(0, 0, 0, 0.15), 0 0.25em 0.021em rgba(0, 0, 0, 0.1), 0 0.32em 0.32em rgba(0, 0, 0, 0.1);
