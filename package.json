@@ -20,6 +20,7 @@
 	],
 	"dependencies": {
 		"simple-scrollbar": "github:mche/simple-scrollbar",
+		"smooth-scrollbar": "^8.6.3",
 		"yaml": "2.0.0-8"
 	}
 }

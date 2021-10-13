@@ -32,10 +32,10 @@
     import Me from './components/Me.svelte';
     import store from './store.js';
     /// просто попробовать скролл https://www.cssscript.com/best-custom-scrollbar-javascript-libraries/
-    import SimpleScrollbar from 'simple-scrollbar';
+    ///import SimpleScrollbar from 'simple-scrollbar';
     /// https://www.cssscript.com/performant-custom-scrollbar-javascript-library-simplebar/
     ////import SimpleBar from 'simplebar';
-    
+    import Scrollbar from 'smooth-scrollbar';
 
     export let head;
 
@@ -52,8 +52,9 @@
         if (!scrollTimeout) scrollTimeout = setTimeout(_ => {
             ///SimpleScrollbar.initEl(Refs.comment);
             ready = true;
-            setTimeout(_ => SimpleScrollbar.initEl(Refs.scroll), 500);
+            //setTimeout(_ => SimpleScrollbar.initEl(Refs.scroll), 500);
             ///setTimeout(_ => new SimpleBar(Refs.scroll), 1000);
+            setTimeout(_ => Scrollbar.init(Refs.scroll, {alwaysShowTracks: true}), 500);
         }, 777);
 	});
 
@@ -86,7 +87,7 @@
     }
   
     .ss-container {
-        height: calc(100vh - 410px); /// 
+        height: calc(100vh - 430px); /// 
         visibility: visible;
         ////overflow: hidden;
         transition: height 1s;
@@ -97,6 +98,7 @@
             padding: 0 1rem 0;
         }
     }
+
     
     .font-effect-3d-float {
         text-shadow: 0 0.15em 0.11em rgba(0, 0, 0, 0.15), 0 0.25em 0.021em rgba(0, 0, 0, 0.1), 0 0.32em 0.32em rgba(0, 0, 0, 0.1);
@@ -131,10 +133,7 @@
     .gr-color {
       color: $gr-color;
     }
-    /*.center {
-      text-align: center;
-    }*/
-    
+
     .clock {
       width: 15rem;
       float: right;
