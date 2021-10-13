@@ -3,17 +3,20 @@
     <Clock />
     <div>Это SVG-часы - динамический Свелт-компонент.</div>
   </div>
-  <h1>
-    <span class="me"><Me options={{style:{height: '15rem'}}} /></span>
-    <span class="svelt-color font-effect-3d-float">{head.title}</span>
-  </h1>
+  <div>
+      <div class="me"><Me options={{style:{height: '15rem'}}} /></div>
+      <h1 class="iblock">
+        <span class="svelt-color font-effect-3d-float">{head.title}</span>
+      </h1>
+  </div>
+
 
   <h2>{ main_post.title }</h2>
   <div class="first-post">{@html main_post.html || '' }</div>
   
-  <div bind:this="{Refs.scroll}" class="  { ready ? 'ss-container z-depth-3' : 'hide' }">{ #each posts as p }
+  <div bind:this="{Refs.scroll}" data-simplebar000 class="  { ready ? 'ss-container z-depth-3' : 'hide' }">{ #each posts as p }
     <div class="post">
-        <h3><a  on:click={ Click(p) }  href="javascript:" class="gr-color">{ p.title }</a></h3>
+        <h3><a  on:click={ Click(p) }  href="##" class="svelt-color">{ p.title }</a></h3>
         <p>{@html p.html }</p>
         {#if !!p.code }<code class="code">{ p.code }</code>{/if}
     </div>
@@ -31,7 +34,8 @@
     /// просто попробовать скролл https://www.cssscript.com/best-custom-scrollbar-javascript-libraries/
     import SimpleScrollbar from 'simple-scrollbar';
     /// https://www.cssscript.com/performant-custom-scrollbar-javascript-library-simplebar/
-    /// не может import SimpleBar from 'simpleBar';
+    ////import SimpleBar from 'simplebar';
+    
 
     export let head;
 
@@ -49,6 +53,7 @@
             ///SimpleScrollbar.initEl(Refs.comment);
             ready = true;
             setTimeout(_ => SimpleScrollbar.initEl(Refs.scroll), 500);
+            ///setTimeout(_ => new SimpleBar(Refs.scroll), 1000);
         }, 777);
 	});
 
@@ -67,6 +72,9 @@
     $sv-color: #ff3e00;
     $gr-color: #1B5E20;
 
+    ///@import 'simple-scrollbar/simple-scrollbar.css';
+    ///@import 'simplebar/dist/simplebar.min.css';
+
     main {
       padding: 1em;
       /*margin: 0 auto;*/
@@ -80,11 +88,13 @@
     .ss-container {
         height: calc(100vh - 410px); /// 
         visibility: visible;
-        ///overflow: hidden;
+        ////overflow: hidden;
         transition: height 1s;
+        padding: 0 1rem;
 
         @media (max-width: 996px) {
-            height: calc(100vh); /// 
+            height: calc(100vh); ///
+            padding: 0 1rem 0;
         }
     }
     
@@ -111,7 +121,7 @@
       //margin-top: 3rem;
     }
     
-    .me {
+    .me, .iblock {
       display:inline-block;
     }
     
@@ -131,7 +141,15 @@
     }
 
     .post {
-        padding: 1rem;
+        padding: 1rem 0;
+
+        a {
+            border-bottom: 3px double;
+
+            &:hover {
+                border: none;
+            }
+        }
     }
 
     .first-post {

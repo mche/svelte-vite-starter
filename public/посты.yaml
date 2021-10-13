@@ -61,6 +61,10 @@
   code: >
     npm config set strict-ssl false
 -
+  title: Тестовое задание на Vue
+  html: >
+    Сделал для приема на работу. Ни ответа, ни привета. Глянуть  -  <a href="http://aiti.surge.sh">демо</a>,  <a href="https://github.com/mche/aiti-test">исходники</a>
+-
   title: SVG-ништяки
   html: >
     Сайтег <a href="https://www.flaticon.com/">www.flaticon.com</a>, где можно брать тонны картинок и пиктограмм.
