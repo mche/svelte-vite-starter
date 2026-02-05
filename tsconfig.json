@@ -1,26 +1,27 @@
 {
-	"include": ["src/**/*", "webpack.config.ts"],
-	"exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+	"extends": "@tsconfig/svelte/tsconfig.json",
 	"compilerOptions": {
-		"moduleResolution": "node",
-		"target": "es2017",
-		"module": "es2020",
+		"target": "esnext",
 		"importsNotUsedAsValues": "remove",
 		"isolatedModules": true,
-		"esModuleInterop": true,
-		"sourceMap": true,
-		"strict": false,
+		"allowJs": true,
+		"checkJs": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
 			"src/*": ["src/*"]
-		},
-		"types": [
-			"svelte",
-			"svelte/store",
-			"svelte/motion",
-			"svelte/transition",
-			"svelte/animate",
-			"svelte/easing"
-		]
-	}
+		}
+	},
+	"include": [
+		"src/**/*.d.ts",
+		"src/**/*.ts",
+		"src/**/*.svelte"
+	],
+	"references": [
+		{
+			"path": "./tsconfig.node.json"
+		}
+	]
 }

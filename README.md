@@ -14,15 +14,14 @@ TypeScript, SCSS, Babel, Autoprefixer, and HMR.
   - [Source maps in production](#source-maps-in-production)
   - [Import path aliases](#import-path-aliases)
 
-> ⚠ **Consider trying the new vite-based [SvelteKit](https://kit.svelte.dev/)!**
-
 ---
 
 ## Getting started
 
 ### Installation
 
-Pull the template files with [`degit`](https://github.com/Rich-Harris/degit) and install dependencies.
+Pull the template files into the current working directory with [`degit`](https://github.com/Rich-Harris/degit) and
+then install dependencies.
 
 ```bash
 npx degit baileyherbert/svelte-vite-starter
@@ -68,7 +67,7 @@ will be added to the bundle in the order specified. Svelte's styles will always 
 
 ### Browsers list
 
-The bundle will be compiled to run on the browsers specified in `package.json`:
+The bundle will be transpiled to run on the browsers specified in `package.json`:
 
 ```json
 "browserslist": [
@@ -81,7 +80,7 @@ If you wish to customize this, please refer to the list of
 
 ### Babel customization
 
-Production builds are compiled with Babel automatically. If you wish to disable it, edit the `vite.config.ts` file:
+Production builds are transpiled with Babel automatically. If you wish to disable this, edit the `vite.config.ts` file:
 
 ```ts
 const useBabel = false;
