@@ -4,7 +4,7 @@ import './main.scss';
 
 let props = {
   "head": {
-    "title": 'Михаил ★ mche.us.to',
+    "title": 'Михаил ★ mche.my.to',
   },
 };
 
